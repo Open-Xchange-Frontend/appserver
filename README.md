@@ -11,3 +11,8 @@ run:
 
 This will install the development dependencies needed, to get you started.
 
+Then you can run
+
+    grunt watch
+
+to start the watch task that will run all tasks needed if a certain file changes.
