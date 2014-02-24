@@ -8,8 +8,8 @@ module.exports = function (grunt) {
                 spawn: true
             },
             all: {
-                files: ['lib/**/*.js', 'Gruntfile.js'],
-                tasks: ['jshint']
+                files: ['spec/**/*', 'lib/**/*.js', 'Gruntfile.js'],
+                tasks: ['jshint', 'test']
             }
         },
         jshint: {
@@ -18,13 +18,25 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                'lib/**/*.js'
+                'lib/**/*.js',
+                'spec/**/*.js'
             ]
+        },
+        mochaTest: {
+            tests: {
+                src: 'spec/**/*_spec.js',
+                options: {
+                    reporter: 'spec'
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('test', ['mochaTest']);
+
+    grunt.registerTask('default', ['jshint', 'test']);
 };
