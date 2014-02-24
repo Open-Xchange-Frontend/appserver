@@ -2,7 +2,7 @@
   "name": "appserver",
   "version": "0.0.1",
   "description": "A connect based middleware to support local development against a remote backend.",
-  "main": "appserver.js",
+  "main": "./lib/appserver",
   "scripts": {
     "test": "grunt test"
   },
