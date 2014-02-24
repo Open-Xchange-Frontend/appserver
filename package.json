@@ -21,5 +21,8 @@
   "private": true,
   "dependencies": {
     "connect": "~2.13.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2"
   }
 }
