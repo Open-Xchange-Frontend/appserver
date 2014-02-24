@@ -1,0 +1,22 @@
+{
+  "name": "appserver",
+  "version": "0.0.1",
+  "description": "A connect based middleware to support local development against a remote backend.",
+  "main": "appserver.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Open-Xchange-Frontend/appserver.git"
+  },
+  "keywords": [
+    "middleware",
+    "proxy",
+    "development"
+  ],
+  "author": "Julian Bäume <julian.baeume@open-xchange.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "private": true
+}
