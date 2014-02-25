@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A connect based middleware to support local development against a remote backend.",
   "main": "./lib/appserver",
+  "bin": {
+    "appserver": "./bin/appserver"
+  },
   "scripts": {
     "test": "grunt test"
   },
