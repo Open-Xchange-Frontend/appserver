@@ -1,6 +1,6 @@
 {
   "name": "appserver",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A connect based middleware to support local development against a remote backend.",
   "main": "./lib/appserver",
   "bin": {
@@ -21,7 +21,6 @@
   "author": "Julian Bäume <julian.baeume@open-xchange.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "private": true,
   "dependencies": {
     "connect": "~2.13.0",
     "nopt": "~2.2.0"
