@@ -57,7 +57,7 @@ function usage(exitCode) {
 var prefixes = options.argv.remain.map(function (s) {
     return path.resolve(s);
 });
-if (!prefixes.length) prefixes =  ['/var/www/appsuite/'];
+if (!prefixes.length) prefixes =  [];
 var manifests = options.manifests || append(prefixes, 'manifests/');
 manifests.reverse();
 
