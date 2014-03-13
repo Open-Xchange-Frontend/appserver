@@ -12,7 +12,7 @@ that can be loaded into some existing node project.
 
 You can install this module globally to make it available as a stand-alone command:
 
-    npm install -g Open-Xchange-Frontend/appserver
+    npm install -g appserver
 
 After that, you can run `appserver --help` in a terminal to get this help:
 
@@ -38,6 +38,26 @@ found. If no paths are specified, the default is /var/www/appsuite/.
 
 Those defaults will only be used for the CLI version. This is because the appserver CLI has
 it’s roots within the OX appsuite project.
+
+#### Options
+
+Read more about the CLI options in detail:
+
+##### verbose
+
+Enables verbose output. During normal operation, ```appserver``` only writes errors to its console. By specifying this option one or more times, additional output can be enabled, depending on the value of each option:
+
+- ```local```: The name of every read local file is written to standard output.
+- ```local:error```: The name of files that have not been found locally are written to standard output (good for debugging missing files).
+- ```remote```: The URL of every request for missing local files is written to standard output.
+- ```proxy```: The URL of every client request which is forwarded as-is is written to standard output.
+- ```all```: This is just a shortcut for ```-v local -v remote -v proxy```.
+
+Output lines belonging to the same client request are grouped together and separated from the next request by an empty line.
+
+##### zoneinfo
+
+Specifies the path to the zoneinfo database. On POSIX systems, the default of ```/usr/share/zoneinfo/``` should always work. Even on systems without the database everything should just work if ```--server``` is specified, since any missing files will be fetched from the remote server. This option may still be useful when debugging time zone problems caused by different versions of the zoneinfo database.
 
 ### As a node module
 
