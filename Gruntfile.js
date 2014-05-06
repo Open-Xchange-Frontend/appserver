@@ -18,9 +18,16 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                'lib/**/*.js',
-                'spec/**/*.js'
-            ]
+                'lib/**/*.js'
+            ],
+            specs: {
+                options: {
+                    jshintrc: 'spec/.jshintrc'
+                },
+                files: [{
+                    src: ['spec/**/*.js']
+                }]
+            }
         },
         mochaTest: {
             tests: {
