@@ -4,7 +4,7 @@ A connect based middleware to support local development against a remote backend
 
 ## Usage
 
-This module can operate in two different modi. First as a stand-alone application that
+This module can operate in two different modes. First as a stand-alone application that
 is able to serve files from some configured directories. Second mode is via a node module
 that can be loaded into some existing node project.
 
