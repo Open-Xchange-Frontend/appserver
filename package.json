@@ -1,6 +1,6 @@
 {
   "name": "appserver",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "A connect based middleware to support local development against a remote backend.",
   "main": "./lib/appserver",
   "bin": {
