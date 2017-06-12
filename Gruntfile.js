@@ -12,20 +12,14 @@ module.exports = function (grunt) {
                 tasks: ['jshint', 'test']
             }
         },
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc'
-            },
-            all: [
-                'Gruntfile.js',
-                'lib/**/*.js'
-            ],
-            specs: {
-                options: {
-                    jshintrc: 'spec/.jshintrc'
-                },
+        eslint: {
+            all: {
                 files: [{
-                    src: ['spec/**/*.js']
+                    expand: true,
+                    src: [
+                        'Gruntfile.js', 'lib/**/*.js', 'spec/**/*.js'
+                    ],
+                    filter: 'isFile'
                 }]
             }
         },
@@ -39,11 +33,11 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask('test', ['mochaTest']);
 
-    grunt.registerTask('default', ['jshint', 'test']);
+    grunt.registerTask('default', ['eslint', 'test']);
 };
