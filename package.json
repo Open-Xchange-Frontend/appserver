@@ -29,7 +29,6 @@
   "devDependencies": {
     "chai": "^4.0.2",
     "eslint": "^3.19.0",
-    "eslint-config-open-xchange-appsuite": "^0.2.0",
     "grunt": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^19.0.0",
