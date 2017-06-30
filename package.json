@@ -22,6 +22,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
+    "@open-xchange/ui-middleware": "^7.10.0-0",
     "connect": "^3.6.2",
     "express": "^4.15.3",
     "http-proxy": "^1.16.2",
