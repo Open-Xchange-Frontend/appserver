@@ -25,7 +25,8 @@
     "connect": "^3.6.2",
     "express": "^4.15.3",
     "nopt": "^4.0.1",
-    "serve-static": "^1.12.3"
+    "serve-static": "^1.12.3",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "chai": "^4.0.2",
