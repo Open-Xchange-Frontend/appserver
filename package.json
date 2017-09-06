@@ -7,7 +7,9 @@
     "appserver": "./bin/appserver"
   },
   "scripts": {
-    "test": "grunt test"
+    "dev": "nodemon --exec 'yarn lint && yarn test'",
+    "lint": "eslint lib spec",
+    "test": "mocha -- spec/*"
   },
   "repository": {
     "type": "git",
@@ -33,10 +35,7 @@
   "devDependencies": {
     "chai": "^4.0.2",
     "eslint": "^3.19.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-eslint": "^19.0.0",
-    "grunt-mocha-test": "^0.13.2",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "nodemon": "^1.12.0"
   }
 }
