@@ -5,7 +5,7 @@ const chai = require('chai'),
     util = require('../lib/util'),
     expect = require('chai').expect;
 
-describe('Serve static files from multiple locations', function () {
+describe('Serve files from multiple locations', function () {
     let server, backend;
     before(function (done) {
         nock.disableNetConnect();
@@ -63,6 +63,24 @@ describe('Serve static files from multiple locations', function () {
                     .with.contents.that.match(/^success/);
             })
 
+    });
+
+    it('should serve files via apps/load middleware', function () {
+        return chai.request(server)
+            .get('/appsuite/api/apps/load/7.10.x-xx,testapp.js')
+            .then(function (res) {
+                expect(res).to.have.status(200);
+                expect(res.text).to.have.match(/success!/);
+            });
+    });
+
+    it('should serve static files when using a version prefix', function () {
+        return chai.request(server)
+            .get('/appsuite/v=7.10.x-xx/testfile.txt')
+            .then(function (res) {
+                expect(res).to.have.status(200);
+                expect(res.text).to.have.match(/^success!/);
+        });
     });
 
     after(function () {
