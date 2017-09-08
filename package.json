@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon --exec 'yarn lint && yarn test'",
     "lint": "eslint lib spec",
-    "test": "mocha -- spec/*"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -34,8 +34,15 @@
   },
   "devDependencies": {
     "chai": "^4.0.2",
+    "chai-fs": "^1.0.0",
+    "chai-http": "^3.0.0",
     "eslint": "^4.6.1",
     "mocha": "^3.2.0",
-    "nodemon": "^1.12.0"
+    "mock-fs": "^4.4.1",
+    "mockfs": "^0.1.5",
+    "nock": "^9.0.14",
+    "nodemon": "^1.12.0",
+    "sinon": "^3.2.1",
+    "sinon-chai": "^2.13.0"
   }
 }
