@@ -29,7 +29,7 @@ describe('Serve files from multiple locations', function () {
 
     it('should load files from first directory in prefixes', function () {
         return chai.request(server)
-            .get('/appsuite/testfile.txt')
+            .get('/appsuite/v=7.10.x-xx/testfile.txt')
             .then(function (res) {
                 expect(res).to.have.status(200);
                 expect(res.text).to.have.match(/^success!/);
@@ -38,7 +38,7 @@ describe('Serve files from multiple locations', function () {
     it('should load files from second directory in prefixes', function () {
         expect('test/fixtures/prefix1/testfile_second.txt').to.not.be.a.path('before the request');
         return chai.request(server)
-            .get('/appsuite/testfile_second.txt')
+            .get('/appsuite/v=7.10.x-xx/testfile_second.txt')
             .then(function (res) {
                 expect(res).to.have.status(200);
                 expect(res.text).to.have.match(/^success!/);
@@ -50,11 +50,11 @@ describe('Serve files from multiple locations', function () {
 
     it('should fallback to remote server', function () {
         backend
-            .get('/testfile_third.txt')
+            .get('/v=7.10.x-xx/testfile_third.txt')
             .reply(200, 'success!');
         expect('test/fixtures/prefix1/testfile_third.txt').to.not.be.a.path('before the request');
         return chai.request(server)
-            .get('/appsuite/testfile_third.txt')
+            .get('/appsuite/v=7.10.x-xx/testfile_third.txt')
             .then(function (res) {
                 expect(res).to.have.status(200);
                 expect(res.text).to.match(/^success!/);
