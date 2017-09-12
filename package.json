@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "nodemon --exec 'yarn lint && yarn test'",
-    "lint": "eslint lib spec",
+    "lint": "eslint lib test",
     "test": "mocha"
   },
   "repository": {
