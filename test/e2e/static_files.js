@@ -8,6 +8,7 @@ const chai = require('chai'),
 describe('Serve files from multiple locations', function () {
     let server, backend;
     before(function (done) {
+        if (!nock.isActive()) nock.activate();
         nock.disableNetConnect();
         nock.enableNetConnect('127.0.0.1');
         backend = nock('http://mock.backend/appsuite/')
