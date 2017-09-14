@@ -74,15 +74,6 @@ describe('Serve files from multiple locations', function () {
             });
     });
 
-    it('should serve static files when using a version prefix', function () {
-        return chai.request(server)
-            .get('/appsuite/v=7.10.x-xx/testfile.txt')
-            .then(function (res) {
-                expect(res).to.have.status(200);
-                expect(res.text).to.have.match(/^success!/);
-        });
-    });
-
     after(function () {
         server.close();
         nock.cleanAll();
