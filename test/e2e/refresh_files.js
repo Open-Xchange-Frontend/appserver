@@ -11,9 +11,7 @@ describe('Refresh behaviour', function () {
         if (!nock.isActive()) nock.activate();
         nock.disableNetConnect();
         nock.enableNetConnect('127.0.0.1');
-        backend = nock('http://mock.backend/appsuite/')
-            .get('/api/apps/manifests?action=config')
-            .reply(200, '{ "data": { "manifests": [] }}');
+        backend = nock('http://mock.backend/appsuite/');
 
         fakeFS = {};
         fakeFS[process.cwd() + '/test/fixtures'] = util.load('test/fixtures');
