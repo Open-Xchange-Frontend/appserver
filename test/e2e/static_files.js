@@ -65,6 +65,21 @@ describe('Serve files from multiple locations', function () {
             })
 
     });
+    it('should pre fetch files without version part', function () {
+        backend
+            .get('/testfile_4th.txt')
+            .reply(200, 'success!');
+        expect('test/fixtures/prefix1/testfile_4th.txt').to.not.be.a.path('before the request');
+        return chai.request(server)
+            .get('/appsuite/testfile_4th.txt')
+            .then(function (res) {
+                expect(res).to.have.status(200);
+                expect(res.text).to.have.match(/^success!/);
+                expect('test/fixtures/prefix1/testfile_4th.txt')
+                    .to.be.a.file()
+                    .with.contents.that.match(/^success/);
+            });
+    });
 
     it('should serve files via apps/load middleware', function () {
         return chai.request(server)
