@@ -1,6 +1,6 @@
 {
   "name": "appserver",
-  "version": "0.7.0-pre10",
+  "version": "0.8.0-pre1",
   "description": "A connect based middleware to support local development against a remote backend.",
   "main": "./lib/appserver",
   "bin": {
@@ -24,7 +24,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "@open-xchange/ui-middleware": "^7.10.0-0",
+    "@open-xchange/ui-middleware": "^7.10.0",
     "connect": "^3.6.2",
     "express": "^4.15.3",
     "http-proxy": "^1.16.2",
