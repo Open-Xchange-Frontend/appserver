@@ -49,10 +49,10 @@ describe('Refresh behaviour', function () {
         backend.done();
     });
 
-    after(function (done) {
+    after(function () {
         nock.cleanAll();
         nock.restore();
         mock.restore();
-        server.close(done);
+        server.close();
     });
 });

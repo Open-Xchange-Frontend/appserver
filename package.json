@@ -25,24 +25,24 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "@open-xchange/ui-middleware": "^7.10.0",
-    "connect": "^3.6.2",
-    "express": "^4.15.3",
-    "http-proxy": "^1.16.2",
+    "connect": "^3.6.6",
+    "express": "^4.16.4",
+    "http-proxy": "^1.17.0",
     "nopt": "^4.0.1",
-    "serve-static": "^1.12.3",
-    "underscore": "^1.8.3"
+    "serve-static": "^1.13.2",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
-    "chai": "^4.0.2",
-    "chai-fs": "^1.0.0",
-    "chai-http": "^3.0.0",
-    "eslint": "^4.6.1",
-    "mocha": "^3.2.0",
-    "mock-fs": "^4.4.1",
+    "chai": "^4.2.0",
+    "chai-fs": "^2.0.0",
+    "chai-http": "^4.2.1",
+    "eslint": "^5.12.0",
+    "mocha": "^5.2.0",
+    "mock-fs": "^4.7.0",
     "mockfs": "^0.1.5",
-    "nock": "^9.0.14",
-    "nodemon": "^1.12.0",
-    "sinon": "^3.2.1",
-    "sinon-chai": "^2.13.0"
+    "nock": "^10.0.6",
+    "nodemon": "^1.18.9",
+    "sinon": "^7.2.2",
+    "sinon-chai": "^3.3.0"
   }
 }
