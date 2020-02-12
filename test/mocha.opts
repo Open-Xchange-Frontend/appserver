@@ -1,3 +1,0 @@
-test/unit/ test/e2e/
--r test/mocha.globals.js
---recursive
