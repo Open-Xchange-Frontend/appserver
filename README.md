@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Open-Xchange-Frontend/appserver.svg?branch=master)](https://travis-ci.org/Open-Xchange-Frontend/appserver)
+
 # appserver
 
 A connect based middleware to support local development against a remote backend.
