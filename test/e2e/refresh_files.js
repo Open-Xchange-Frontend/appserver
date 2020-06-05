@@ -1,5 +1,5 @@
 const chai = require('chai')
-const appserver = require('../../lib/server.js')
+const appserver = require('../../lib/appserver.js')
 const nock = require('nock')
 const mock = require('mock-fs')
 const util = require('../lib/util')
