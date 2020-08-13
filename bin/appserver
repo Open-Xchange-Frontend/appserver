@@ -21,8 +21,7 @@ const options = nopt({
   path: String,
   port: Number,
   server: String,
-  verbose: ['local', 'remote', 'proxy', 'all', Array],
-  zoneinfo: path
+  verbose: ['local', 'remote', 'proxy', 'all', Array]
 }, {
   h: '--help',
   m: '--manifests',
@@ -46,8 +45,6 @@ function usage (exitCode) {
         '  -v TYPE, --verbose=TYPE   print more information depending on TYPE:\n' +
         '                            local: local files, remote: remote files,\n' +
         '                            proxy: forwarded URLs, all: shortcut for all three\n' +
-        '  -z PATH, --zoneinfo=PATH  use timezone data from the specified path\n' +
-        '                            (default: /usr/share/zoneinfo/)\n\n' +
         'Files are searched in each PATH in order and requested from the server if not\n' +
         'found. If no paths are specified, the default is /var/www/appsuite/.')
   process.exit(exitCode)
