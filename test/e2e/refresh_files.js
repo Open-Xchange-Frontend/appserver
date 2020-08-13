@@ -1,5 +1,6 @@
 const chai = require('chai')
 const appserver = require('../../lib/appserver.js')
+const path = require('path')
 const nock = require('nock')
 const mock = require('mock-fs')
 const util = require('../lib/util')
@@ -7,23 +8,27 @@ const expect = require('chai').expect
 
 describe('Refresh behaviour', function () {
   let server, fakeFS, backend
-  before(function (done) {
+  before(async function () {
     if (!nock.isActive()) nock.activate()
     nock.disableNetConnect()
     nock.enableNetConnect('127.0.0.1')
     backend = nock('http://mock.backend/appsuite/')
 
-    fakeFS = {}
+    fakeFS = {
+      node_modules: mock.load(path.resolve(__dirname, '../../node_modules'))
+    }
     fakeFS[process.cwd() + '/test/fixtures'] = util.load('test/fixtures')
     mock(fakeFS)
 
-    server = appserver.create({
-      prefixes: [
-        'test/fixtures/prefix1',
-        'test/fixtures/prefix2'
-      ],
-      server: 'http://mock.backend/appsuite/'
-    }).once('listening', done)
+    return new Promise(function (resolve) {
+      server = appserver.create({
+        prefixes: [
+          'test/fixtures/prefix1',
+          'test/fixtures/prefix2'
+        ],
+        server: 'http://mock.backend/appsuite/'
+      }).once('listening', resolve)
+    })
   })
 
   it('should update outdated files from local directories', function () {

@@ -17,8 +17,8 @@ nopt.invalidHandler = function (key, val) {
 
 const options = nopt({
   help: Boolean,
-  manifests: [String, Array],
-  path: String,
+  manifests: [path, Array],
+  path: [path, Array],
   port: Number,
   server: String,
   verbose: ['local', 'remote', 'proxy', 'all', Array]
@@ -50,7 +50,7 @@ function usage (exitCode) {
   process.exit(exitCode)
 }
 
-options.prefixes = options.argv.remain.map(path.resolve)
+options.prefixes = options.argv.remain.map(p => path.resolve(p))
 options.manifests = options.manifests || options.prefixes.map(prefix => path.join(prefix, 'manifests/')).reverse()
 
 if (options.server) {
