@@ -21,6 +21,7 @@ describe('Serve files from multiple locations', function () {
 
     server = appserver.create({
       prefixes: [
+        'test/fixtures/build',
         'test/fixtures/prefix1',
         'test/fixtures/prefix2'
       ],
@@ -37,13 +38,13 @@ describe('Serve files from multiple locations', function () {
       })
   })
   it('should load files from second directory in prefixes', function () {
-    expect('test/fixtures/prefix1/testfile_second.txt').to.not.be.a.path('before the request')
+    expect('test/fixtures/build/testfile_second.txt').to.not.be.a.path('before the request')
     return chai.request(server)
       .get('/appsuite/v=7.10.x-xx/testfile_second.txt')
       .then(function (res) {
         expect(res).to.have.status(200)
         expect(res.text).to.have.match(/^success!/)
-        expect('test/fixtures/prefix1/testfile_second.txt')
+        expect('test/fixtures/build/testfile_second.txt')
           .to.be.a.file()
           .with.contents.that.match(/^success/)
       })
@@ -53,13 +54,13 @@ describe('Serve files from multiple locations', function () {
     backend
       .get('/v=7.10.x-xx/testfile_third.txt')
       .reply(200, 'success!')
-    expect('test/fixtures/prefix1/testfile_third.txt').to.not.be.a.path('before the request')
+    expect('test/fixtures/build/testfile_third.txt').to.not.be.a.path('before the request')
     return chai.request(server)
       .get('/appsuite/v=7.10.x-xx/testfile_third.txt')
       .then(function (res) {
         expect(res).to.have.status(200)
         expect(res.text).to.match(/^success!/)
-        expect('test/fixtures/prefix1/testfile_third.txt')
+        expect('test/fixtures/build/testfile_third.txt')
           .to.be.a.file()
           .with.contents.that.match(/^success/)
       })
@@ -68,13 +69,13 @@ describe('Serve files from multiple locations', function () {
     backend
       .get('/testfile_4th.txt')
       .reply(200, 'success!')
-    expect('test/fixtures/prefix1/testfile_4th.txt').to.not.be.a.path('before the request')
+    expect('test/fixtures/build/testfile_4th.txt').to.not.be.a.path('before the request')
     return chai.request(server)
       .get('/appsuite/testfile_4th.txt')
       .then(function (res) {
         expect(res).to.have.status(200)
         expect(res.text).to.have.match(/^success!/)
-        expect('test/fixtures/prefix1/testfile_4th.txt')
+        expect('test/fixtures/build/testfile_4th.txt')
           .to.be.a.file()
           .with.contents.that.match(/^success/)
       })

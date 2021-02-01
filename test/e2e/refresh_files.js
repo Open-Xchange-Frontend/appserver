@@ -23,6 +23,7 @@ describe('Refresh behaviour', function () {
     return new Promise(function (resolve) {
       server = appserver.create({
         prefixes: [
+          'test/fixtures/build',
           'test/fixtures/prefix1',
           'test/fixtures/prefix2'
         ],
@@ -33,7 +34,7 @@ describe('Refresh behaviour', function () {
 
   it('should update outdated files from local directories', function () {
     mock.restore()
-    fakeFS[process.cwd() + '/test/fixtures'].prefix1['testfile_second.txt'] = mock.file({
+    fakeFS[process.cwd() + '/test/fixtures'].build['testfile_second.txt'] = mock.file({
       mtime: 0,
       content: 'Too old to rock\'n\'roll, but too young to die.'
     })

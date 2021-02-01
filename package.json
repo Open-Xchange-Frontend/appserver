@@ -7,7 +7,7 @@
     "appserver": "./bin/appserver"
   },
   "scripts": {
-    "dev": "nodemon --exec 'yarn lint && yarn test'",
+    "dev": "nodemon --exec 'yarn test'",
     "test": "mocha"
   },
   "repository": {
