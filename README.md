@@ -90,9 +90,7 @@ An example of how to use this module with grunt-contrib-connect, see this snippe
                     config.manifests = (config.manifests || []).concat(options.base + '/manifests/');
                     config = appserver.tools.unifyOptions(config);
 
-                    middlewares.push(appserver.middleware.appsload(config));
                     middlewares.push(appserver.middleware.manifests(config));
-                    middlewares.push(appserver.middleware.localfiles(config));
                     middlewares.push(appserver.middleware.proxy(config));
                     return middlewares;
                 }

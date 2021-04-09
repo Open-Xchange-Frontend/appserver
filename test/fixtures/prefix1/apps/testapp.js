@@ -1,3 +1,3 @@
 global.define('testapp', function () {
-    return 'success!';
-});
+  return 'success!'
+})

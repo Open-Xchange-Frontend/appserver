@@ -7,8 +7,7 @@
     "appserver": "./bin/appserver"
   },
   "scripts": {
-    "dev": "nodemon --exec 'yarn lint && yarn test'",
-    "lint": "eslint lib test",
+    "dev": "nodemon --exec 'yarn test'",
     "test": "mocha"
   },
   "repository": {
@@ -23,12 +22,19 @@
   "author": "Julian Bäume <julian.baeume@open-xchange.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
+  "lint-staged": {
+    "*.js": [
+      "eslint"
+    ]
+  },
   "dependencies": {
     "@open-xchange/ui-middleware": "^7.10.0",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
     "connect": "^3.6.6",
     "express": "^4.16.4",
     "http-proxy": "^1.17.0",
-    "nopt": "^4.0.1",
+    "nopt": "^5.0.0",
     "serve-static": "^1.13.2",
     "underscore": "^1.9.1"
   },
@@ -37,12 +43,24 @@
     "chai-fs": "^2.0.0",
     "chai-http": "^4.2.1",
     "eslint": "^7.1.0",
-    "mocha": "^7.0.1",
-    "mock-fs": "^4.7.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": ">=1",
+    "lint-staged": ">=8",
+    "mocha": "^8.2.1",
+    "mock-fs": "^4.13.0",
     "mockfs": "^0.1.5",
-    "nock": "^12.0.3",
+    "nock": "^13.0.6",
     "nodemon": "^2.0.2",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
